@@ -1,34 +1,6 @@
 import Head from 'next/head';
 import { MongoClient } from 'mongodb';
-import { useEffect, useState } from 'react';
 import MeetupList from '../components/meetups/MeetupList';
-
-// const DUMMY_MEETUPS = [
-//   {
-//     id: 'm1',
-//     title: 'First meetup',
-//     image:
-//       'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-//     address: 'Adres 1, Praha 2',
-//     description: 'lets go ham',
-//   },
-//   {
-//     id: 'm2',
-//     title: 'First meetup',
-//     image:
-//       'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-//     address: 'Adres 1, Praha 2',
-//     description: 'lets go ham',
-//   },
-//   {
-//     id: 'm3',
-//     title: 'First meetup',
-//     image:
-//       'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-//     address: 'Adres 1, Praha 2',
-//     description: 'lets go ham',
-//   },
-// ];
 
 function HomePage(props) {
   return (
@@ -37,7 +9,7 @@ function HomePage(props) {
         <title>Meetups NextJS project</title>
         <meta name="description" content="huge list of highly active meetups" />
       </Head>
-      <MeetupList meetups={props.meetups} />;
+      <MeetupList meetups={props.meetups} />
     </>
   );
 }
