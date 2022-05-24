@@ -9,6 +9,7 @@ function HomePage(props) {
         <title>Meetups NextJS project</title>
         <meta name="description" content="huge list of highly active meetups" />
       </Head>
+      <h1></h1>
       <MeetupList meetups={props.meetups} />
     </>
   );
@@ -28,9 +29,7 @@ function HomePage(props) {
 export async function getStaticProps() {
   // fetch data from an API
 
-  const client = await MongoClient.connect(
-    'mongodb+srv://admin:admin@cluster0.zkiho.mongodb.net/meetups?retryWrites=true&w=majority'
-  );
+  const client = await MongoClient.connect(process.env.SERVER);
   const db = client.db();
 
   const meetupsCollection = db.collection('meetupsCollection');
@@ -49,7 +48,7 @@ export async function getStaticProps() {
         id: meetup._id.toString(),
       })),
     },
-    revalidate: 10,
+    revalidate: 1,
   };
 }
 

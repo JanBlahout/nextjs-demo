@@ -20,9 +20,7 @@ const MeetupDetails = props => {
 };
 
 export async function getStaticPaths() {
-  const client = await MongoClient.connect(
-    'mongodb+srv://admin:admin@cluster0.zkiho.mongodb.net/meetups?retryWrites=true&w=majority'
-  );
+  const client = await MongoClient.connect(process.env.SERVER);
   const db = client.db();
 
   const meetupsCollection = db.collection('meetupsCollection');
@@ -44,9 +42,7 @@ export async function getStaticProps(context) {
 
   const meetupId = context.params.meetupId;
 
-  const client = await MongoClient.connect(
-    'mongodb+srv://admin:admin@cluster0.zkiho.mongodb.net/meetups?retryWrites=true&w=majority'
-  );
+  const client = await MongoClient.connect(process.env.SERVER);
   const db = client.db();
 
   const meetupsCollection = db.collection('meetupsCollection');

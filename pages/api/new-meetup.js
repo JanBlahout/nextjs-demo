@@ -9,9 +9,7 @@ async function handler(req, res) {
 
     // const { title, image, address, description } = data;
 
-    const client = await MongoClient.connect(
-      'mongodb+srv://admin:admin@cluster0.zkiho.mongodb.net/meetups?retryWrites=true&w=majority'
-    );
+    const client = await MongoClient.connect(process.env.SERVER);
     const db = client.db();
 
     const meetupsCollection = db.collection('meetupsCollection');
